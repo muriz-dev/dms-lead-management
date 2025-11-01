@@ -84,7 +84,7 @@
                     <div class="p-6">
                         <div class="flex items-center justify-between">
                             <div>
-                                <p class="text-sm font-medium text-gray-600">Converted</p>
+                                <p class="text-sm font-medium text-gray-600">Terkonversi</p>
                                 <p class="text-3xl font-bold text-dms-orange mt-2">{{ $stats['converted'] }}</p>
                             </div>
                             <div class="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center">

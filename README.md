@@ -181,4 +181,4 @@ For internal use only.
 
 ---
 
-**Made with ❤️ by DMS Development Team**
+**Made with ❤️ by Muhamad Rizki**

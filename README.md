@@ -1,66 +1,184 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# DMS Lead Management Dashboard
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+> Simple internal lead management system for PT Dynamics Management Solution
 
-## About Laravel
+[![Laravel](https://img.shields.io/badge/Laravel-12-FF2D20?style=flat-square&logo=laravel)](https://laravel.com)
+[![PHP](https://img.shields.io/badge/PHP-8.3+-777BB4?style=flat-square&logo=php)](https://php.net)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind-3.x-06B6D4?style=flat-square&logo=tailwind-css)](https://tailwindcss.com)
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+---
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## 🎯 About
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Internal web application untuk mengelola prospek klien (leads) dengan sistem CRUD lengkap, status tracking, dan dashboard statistics.
 
-## Learning Laravel
+**Brand Colors:** 🟠 Orange `#FF6900` | ⚫ Black `#000000` | ⚪ White `#FFFFFF`
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+---
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+## ✨ Features
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+- 🔐 **Authentication** - Login/logout dengan Laravel Breeze
+- 📊 **Dashboard** - Real-time statistics (Total, New, Contacted, Interested, Converted)
+- 👥 **Lead CRUD** - Create, Read, Update, Delete leads
+- 🔍 **Search & Filter** - Cari berdasarkan nama/email/company, filter by status
+- 📝 **Status Tracking** - 5 status: New, Contacted, Interested, Not Interested, Converted
+- 👤 **User Assignment** - Assign leads ke team members
+- 📱 **Responsive** - Mobile-friendly design
 
-## Laravel Sponsors
+---
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+## 🚀 Quick Start
 
-### Premium Partners
+### Prerequisites
+- PHP 8.3+, Composer, Node.js 18+, MySQL 8.0+
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+### Installation
 
-## Contributing
+```bash
+# Clone repository
+git clone https://github.com/dynamics-ms/dms-lead-management.git
+cd dms-lead-management
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+# Install dependencies
+composer install
+npm install
 
-## Code of Conduct
+# Setup environment
+cp .env.example .env
+php artisan key:generate
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+# Configure database di .env, lalu:
+php artisan migrate
+php artisan db:seed
 
-## Security Vulnerabilities
+# Build & run
+npm run dev          # Terminal 1
+php artisan serve    # Terminal 2
+```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+Visit: `http://localhost:8000`
 
-## License
+---
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+## 👤 Default Login
+
+```
+Email: admin@dynamics-ms.com
+Password: password
+```
+
+⚠️ **Change password in production!**
+
+---
+
+## 📊 Lead Status
+
+| Status | Meaning | Color |
+|--------|---------|-------|
+| 🔵 **NEW** | Lead baru masuk | Blue |
+| 🟡 **CONTACTED** | Sudah dihubungi | Yellow |
+| 🟢 **INTERESTED** | Menunjukkan ketertarikan | Green |
+| 🔴 **NOT INTERESTED** | Tidak tertarik saat ini | Red |
+| 🟠 **CONVERTED** | Berhasil jadi customer! | Orange |
+
+---
+
+## 🛠️ Tech Stack
+
+- **Backend:** Laravel 12, PHP 8.3+, MySQL
+- **Frontend:** Blade, Tailwind CSS 3.x, Vite
+- **Auth:** Laravel Breeze
+
+---
+
+## 📁 Key Files
+
+```
+app/
+├── Http/Controllers/
+│   ├── DashboardController.php    # Dashboard stats
+│   └── LeadController.php         # Lead CRUD
+├── Models/
+│   └── Lead.php                   # Lead model
+└── Enums/
+    └── LeadStatus.php             # Status enum
+
+resources/views/
+├── dashboard.blade.php            # Dashboard
+└── leads/                         # Lead views
+    ├── index.blade.php
+    ├── create.blade.php
+    ├── edit.blade.php
+    └── show.blade.php
+```
+
+---
+
+## 🧪 Testing
+
+```bash
+php artisan test
+```
+
+---
+
+## 🚀 Deployment
+
+```bash
+# Production build
+npm run build
+
+# Optimize
+php artisan config:cache
+php artisan route:cache
+php artisan view:cache
+
+# Run migrations
+php artisan migrate --force
+```
+
+Set `.env`:
+```
+APP_ENV=production
+APP_DEBUG=false
+```
+
+---
+
+## 📝 Contributing
+
+Baca [CONTRIBUTING.md](CONTRIBUTING.md) untuk guidelines.
+
+**Commit Convention:**
+```bash
+feat: add CSV export
+fix: resolve dashboard bug
+docs: update README
+```
+
+---
+
+## 📄 License
+
+**Proprietary** - © 2025 PT Dynamics Management Solution. All Rights Reserved.  
+For internal use only.
+
+---
+
+## 📞 Support
+
+- 📧 Email: it-support@dynamics-ms.com
+- 💬 Slack: #dms-tech-support
+
+---
+
+## 🌟 PT Dynamics Management Solution
+
+**Services:** AI Services • Cybersecurity • Digital Protection  
+**Website:** [dynamics-ms.com](https://www.dynamics-ms.com)  
+**Tagline:** *Protect, Predict, and Prevent, with Intelligent Defense.*
+
+---
+
+**Made with ❤️ by DMS Development Team**
